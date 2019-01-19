@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: deploy_like_a_pro_production
-  username: deploy_like_a_pro
-  password: <%= ENV['DEPLOY_LIKE_A_PRO_DATABASE_PASSWORD'] %>
+  host: <%= Rails.application.credentials.production[:db][:host] %>
+  database: <%= Rails.application.credentials.production[:db][:name] %>
+  username: <%= Rails.application.credentials.production[:db][:master_username] %>
+  password: <%= Rails.application.credentials.production[:db][:master_password] %>
